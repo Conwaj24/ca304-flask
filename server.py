@@ -38,12 +38,15 @@ def result():
 
 @app.route('/allegiances')
 def rest():
-    return Response("allegiances", mimetype="application/json")
+    return Response(
+            csv_to_json("allegiances.csv"),
+            mimetype="application/json"
+        )
 
 @app.route('/allegiancedashboard')
 def dash():
     return "allegiancedashboard"
 
 if __name__ == "__main__":
-    app.run(port=8000)
+    app.run(port=8080)
 
